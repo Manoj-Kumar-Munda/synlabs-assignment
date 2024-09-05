@@ -1,4 +1,4 @@
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Form from "../components/Form/Form";
 import usePost from "../hooks/usePost";
 import "../styles/form.css";
@@ -12,9 +12,14 @@ const AddUser = () => {
 
   useEffect(() => {
     if (userData) {
+      toast.success("User added");
       addUser(userData);
     }
   }, [userData]);
+
+  if(error){
+    toast.error("Failed to add user")
+  }
   return (
     <div className="form-container">
       <Toaster />

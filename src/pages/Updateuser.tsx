@@ -5,6 +5,7 @@ import { IForm, IUser } from "../types/types";
 import Spinner from "../components/Spinner";
 import { useContext } from "react";
 import { UserContext } from "../context/context";
+import toast, { Toaster } from "react-hot-toast";
 
 const Updateuser = () => {
   const { id } = useParams();
@@ -29,7 +30,9 @@ const Updateuser = () => {
       );
       const json = await response.json();
       updateUser(json?.id, json);
+      toast.success("User updated");
     } catch (error) {
+      toast.error("Failed to update user");
       console.log(error);
     }
   };
@@ -39,6 +42,7 @@ const Updateuser = () => {
   }
   return (
     <div className="form-container">
+      <Toaster />
       <h2>Update User</h2>
       <Form user={data as IUser} onSubmit={onSubmit} loading={loading} />
     </div>
