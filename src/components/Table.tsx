@@ -3,11 +3,12 @@ import { IForm, IUser } from "../types/types";
 import UseDelete from "../hooks/UseDelete";
 
 const Table = ({ data }: { data: IUser[] }) => {
-  const { handleDelete, data: deletedUser, error, loading } = UseDelete();
+  const { handleDelete,  error, loading } = UseDelete();
 
   const clickHandler = (id: number) => {
     handleDelete(id);
   };
+
   return (
     <div className="dashboard-container">
       <div className="table-container">
@@ -32,15 +33,20 @@ const Table = ({ data }: { data: IUser[] }) => {
                   <td>{user.phone}</td>
                   <td>{user.website}</td>
                   <td>
-                    <Link className="link btn" to={`/update-user/${user.id}`}>
-                      Update
-                    </Link>
-                    <button
-                      className="btn delete-btn"
-                      onClick={() => clickHandler(user.id)}
-                    >
-                      Delete
-                    </button>
+                    <div className="action-container">
+                      <Link className="link btn" to={`/user/${user.id}`}>
+                        View
+                      </Link>
+                      <Link className="link btn" to={`/update-user/${user.id}`}>
+                        Update
+                      </Link>
+                      <button
+                        className="btn delete-btn"
+                        onClick={() => clickHandler(user.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
