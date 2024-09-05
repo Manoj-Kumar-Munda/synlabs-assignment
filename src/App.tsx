@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import User from "./pages/User";
-import Header from "./components/Header";
 import AddUser from "./pages/AddUser";
 import Updateuser from "./pages/Updateuser";
 import Layout from "./components/Layout";

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { IForm, IUser } from "../types/types";
+import { IUser } from "../types/types";
 import UseDelete from "../hooks/UseDelete";
 
 const Table = ({ data }: { data: IUser[] }) => {
-  const { handleDelete, error, loading } = UseDelete();
+  const { handleDelete } = UseDelete();
 
   const clickHandler = (id: number) => {
     handleDelete(id);

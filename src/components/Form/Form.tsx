@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import Input from "./Input";
-import usePost from "../../hooks/usePost";
-import { UserContext } from "../../context/context";
+
 import { IUser } from "../../types/types";
 
 interface FormProps {
