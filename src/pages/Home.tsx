@@ -4,13 +4,12 @@ import useFetch from "../hooks/useFetch";
 
 const Home = () => {
   const { data, error, loading } = useFetch();
-
-  if (loading || !data) return <Spinner />;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <Spinner />;
+  if (error) return <div className="spinner-container">{error}</div>;
   return (
     <div className="main-container">
       <h1 style={{ paddingBlock: "6px" }}>Users</h1>
-      {<Table data={data} />}
+      {data && <Table data={data} />}
     </div>
   );
 };
