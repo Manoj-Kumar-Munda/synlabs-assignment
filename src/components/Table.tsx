@@ -3,7 +3,7 @@ import { IForm, IUser } from "../types/types";
 import UseDelete from "../hooks/UseDelete";
 
 const Table = ({ data }: { data: IUser[] }) => {
-  const { handleDelete,  error, loading } = UseDelete();
+  const { handleDelete, error, loading } = UseDelete();
 
   const clickHandler = (id: number) => {
     handleDelete(id);
@@ -34,14 +34,24 @@ const Table = ({ data }: { data: IUser[] }) => {
                   <td>{user.website}</td>
                   <td>
                     <div className="action-container">
-                      <Link className="link btn" to={`/user/${user.id}`}>
-                        View
-                      </Link>
-                      <Link className="link btn" to={`/update-user/${user.id}`}>
-                        Update
-                      </Link>
+                      <button className="btn">
+                        <Link className="link" to={`/user/${user.id}`}>
+                          View
+                        </Link>
+                      </button>
+
+                      <button className="btn" style={{ backgroundColor:'#4287f5'}}>
+                        <Link
+                          className="link"
+                          to={`/update-user/${user.id}`}
+                        >
+                          Update
+                        </Link>
+                      </button>
+
                       <button
-                        className="btn delete-btn"
+                        style={{ backgroundColor:'#f5426c'}}
+                        className="btn"
                         onClick={() => clickHandler(user.id)}
                       >
                         Delete

@@ -40,6 +40,24 @@
   .table tr:hover {
     background-color: #f0f0f0;
   }
+
+  .action-container {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+
+  .action-container .link {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .action-container .btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
   @media screen and (max-width: 600px) {
     .table th,
