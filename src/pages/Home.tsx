@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import Spinner from "../components/Spinner";
 import Table from "../components/Table";
-import useFetch from "../hooks/useFetch";
+import { UserContext } from "../context/context";
+// import useFetch from "../hooks/useFetch";
 import "../styles/home.css";
 
 const Home = () => {
-  const { data, error, loading } = useFetch();
+  const { data, error, loading } = useContext(UserContext);
   if (loading) return <Spinner />;
   if (error) return <div className="spinner-container">{error}</div>;
   return (

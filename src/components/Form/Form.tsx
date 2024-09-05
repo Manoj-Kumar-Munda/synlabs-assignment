@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Input from "./Input";
 import usePost from "../../hooks/usePost";
-
+import { UserContext } from "../../context/context";
 
 interface FormProps {
   name: string;
@@ -13,9 +13,15 @@ interface FormProps {
 
 const Form = () => {
   const { postData, loading, error, userData } = usePost();
+  const { addUser } = useContext(UserContext);
+
+  useEffect(() => {
+    if (userData) {
+      addUser(userData);
+    }
+  }, [userData]);
 
   console.log(userData);
-  
 
   const [form, setForm] = useState<FormProps>({
     name: "",
@@ -82,7 +88,7 @@ const Form = () => {
         label="Website"
         type="text"
         name="website"
-        value={form.website}            
+        value={form.website}
         onChange={(e) => {
           setForm({
             ...form,

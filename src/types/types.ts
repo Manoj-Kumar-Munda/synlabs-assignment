@@ -5,7 +5,7 @@ export interface IUser {
   email: string;
   phone: string;
   website: string;
-  address: {
+  address ?: {
     street: string;
     suite: string;
     city: string;
@@ -15,7 +15,7 @@ export interface IUser {
       lng: string;
     };
   };
-  company: {
+  company ?: {
     name: string;
     catchPhrase: string;
     bs: string;
@@ -23,7 +23,6 @@ export interface IUser {
 }
 
 export interface IForm {
-  
     username: string;
     name: string;
     email: string;
