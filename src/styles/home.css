@@ -1,6 +1,13 @@
 
+
+.main-container h1{
+    text-align: center;
+    margin-block: 20px;
+}
+
   .table-container {
     overflow-x: auto;
+    margin-bottom: 10px;
   }
   
   .table {

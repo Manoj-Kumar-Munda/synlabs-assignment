@@ -2,7 +2,6 @@ import { useContext } from "react";
 import Spinner from "../components/Spinner";
 import Table from "../components/Table";
 import { UserContext } from "../context/context";
-// import useFetch from "../hooks/useFetch";
 import "../styles/home.css";
 
 const Home = () => {

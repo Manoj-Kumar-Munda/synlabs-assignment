@@ -19,7 +19,7 @@ export const UserContext = createContext<{
 });
 
 export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
-  const { data, error, loading } = useFetch(
+  const { data, error, loading } = useFetch<IUser[]>(
     "https://jsonplaceholder.typicode.com/users"
   );
 

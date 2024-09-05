@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { IUser } from "../types/types";
 
-const useFetch = (url: string) => {
-  const [data, setData] = useState<IUser[] | IUser | null>(null);
+function useFetch<T>(url: string) {
+  const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);
 
