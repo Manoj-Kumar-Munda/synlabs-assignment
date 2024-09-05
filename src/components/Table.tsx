@@ -1,15 +1,14 @@
 
 import useFetch from '../hooks/useFetch';
+import { IUser } from '../types/types';
 
-const Table = () => {
-    const { data, error, loading } = useFetch();
+const Table = ({ data } : { data: IUser[]}) => {
+   
     console.log(data);
   return (
     <div className="dashboard-container">
       <div className="table-container">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
+        
           <table className="table">
             <thead>
               <tr>
@@ -33,7 +32,7 @@ const Table = () => {
                 ))}
             </tbody>
           </table>
-        )}
+       
       </div>
     </div>
   )
