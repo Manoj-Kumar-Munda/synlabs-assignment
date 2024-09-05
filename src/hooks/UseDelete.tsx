@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { IForm, IUser } from "../types/types";
 import { UserContext } from "../context/context";
 
 const UseDelete = () => {

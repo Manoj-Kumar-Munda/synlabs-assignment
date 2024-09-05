@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Input from "./Input";
 import usePost from "../../hooks/usePost";
 import { UserContext } from "../../context/context";
+import { IUser } from "../../types/types";
 
 interface FormProps {
   name: string;
@@ -11,27 +12,26 @@ interface FormProps {
   website: string;
 }
 
-const Form = () => {
-  const { postData, loading, error, userData } = usePost();
-  const { addUser } = useContext(UserContext);
-
-  useEffect(() => {
-    if (userData) {
-      addUser(userData);
-    }
-  }, [userData]);
-
-  console.log(userData);
+const Form = ({
+  user,
+  onSubmit,
+  loading,
+}: {
+  user: IUser | null;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>, form: FormProps) => void;
+  loading: boolean;
+}) => {
+ 
 
   const [form, setForm] = useState<FormProps>({
-    name: "",
-    username: "",
-    email: "",
-    phone: "",
-    website: "",
+    name: user?.name || "",
+    username: user?.username || "",
+    email: user?.email || "",
+    phone: user?.phone || "",
+    website: user?.website || "",
   });
   return (
-    <form onSubmit={(e) => postData(e, form)}>
+    <form onSubmit={(e) => onSubmit(e, form)}>
       <Input
         label="Name"
         type="text"

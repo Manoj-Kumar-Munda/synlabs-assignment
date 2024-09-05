@@ -19,7 +19,9 @@ export const UserContext = createContext<{
 });
 
 export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
-  const { data, error, loading } = useFetch();
+  const { data, error, loading } = useFetch(
+    "https://jsonplaceholder.typicode.com/users"
+  );
 
   const [users, setUsers] = useState<IUser[] | null>(null);
 
@@ -43,7 +45,7 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (data) {
-      setUsers(data);
+      setUsers(data as IUser[]);
     }
   }, [data]);
 
