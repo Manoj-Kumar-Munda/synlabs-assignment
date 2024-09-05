@@ -1,6 +1,7 @@
 import Spinner from "../components/Spinner";
 import Table from "../components/Table";
 import useFetch from "../hooks/useFetch";
+import "../styles/home.css";
 
 const Home = () => {
   const { data, error, loading } = useFetch();

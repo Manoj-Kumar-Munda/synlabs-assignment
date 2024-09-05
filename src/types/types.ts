@@ -21,3 +21,12 @@ export interface IUser {
     bs: string;
   };
 }
+
+export interface IForm {
+  
+    username: string;
+    name: string;
+    email: string;
+    phone: string;
+    website: string;
+}
